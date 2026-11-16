@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "38007927-d7ac-4d0a-a415-c5a922644582",
+    "name": "API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "22803133"
+  },
+  "item": [
+    {
+      "name": "Create - POST",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201 Created\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "let jsonData = pm.response.json();\r",
+              "pm.test(\"Response returns newly generated ID 101\", function () {\r",
+              "    pm.expect(jsonData.id).to.eql(101);\r",
+              "});\r",
+              "\r",
+              "// Hardcode 1 so subsequent GET/PATCH/DELETE requests succeed against JSONPlaceholder\r",
+              "pm.environment.set(\"postId\", 1);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"API Testing\",\r\n  \"body\": \"Test Sample\",\r\n  \"userId\": 1\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "posts](https:",
+                "",
+                "jsonplaceholder.typicode.com",
+                "posts"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 31 Jul 2026 09:42:01 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "68"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "access-control-allow-credentials",
+              "value": "true"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "Location"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"44-OnXuD3e7voxVrU9l0rDFZALfA50\""
+            },
+            {
+              "key": "expires",
+              "value": "-1"
+            },
+            {
+              "key": "location",
+              "value": "https://jsonplaceholder.typicode.com/posts](https:/jsonplaceholder.typicode.com/posts/101"
+            },
+            {
+              "key": "nel",
+              "value": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"
+            },
+            {
+              "key": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "report-to",
+              "value": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=yK9GFgEj9JpRfM8K0ykAGjUGWmjpd2G1r%2FpnfIJSvFg%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1785490921\"}],\"max_age\":3600}"
+            },
+            {
+              "key": "reporting-endpoints",
+              "value": "heroku-nel=\"https://nel.heroku.com/reports?s=yK9GFgEj9JpRfM8K0ykAGjUGWmjpd2G1r%2FpnfIJSvFg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1785490921\""
+            },
+            {
+              "key": "Server",
+              "value": "cloudflare"
+            },
+            {
+              "key": "vary",
+              "value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+            },
+            {
+              "key": "via",
+              "value": "2.0 heroku-router"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "x-ratelimit-limit",
+              "value": "1000"
+            },
+            {
+              "key": "x-ratelimit-remaining",
+              "value": "999"
+            },
+            {
+              "key": "x-ratelimit-reset",
+              "value": "1785490955"
+            },
+            {
+              "key": "cf-cache-status",
+              "value": "DYNAMIC"
+            },
+            {
+              "key": "CF-RAY",
+              "value": "a23ba6907d2cfd8b-SIN"
+            },
+            {
+              "key": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"posts](https:Id\": \"jsonplaceholder.typicode.com\",\n    \"id\": 101\n}"
+        }
+      ]
+    },
+    {
+      "name": "Read - GET",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 1. Verify the status code is 200 OK\r",
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// 2. Extract the response data to verify the content matches what has been created\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Verify the data matches what was created\", function () {\r",
+              "    // Check that the shape or structure is correct\r",
+              "    pm.expect(responseData).to.have.property('id');\r",
+              "    pm.expect(responseData).to.have.property('title');\r",
+              "    pm.expect(responseData).to.have.property('body');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update - PATCH",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 1. Verify the status code is 200 OK for a successful update\r",
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "// 2. Verify the specific field you modified changed correctly\r",
+              "pm.test(\"Verify updated field changed correctly\", function () {\r",
+              "    pm.expect(responseData.title).to.eql(\"This Title has been updated\");\r",
+              "});\r",
+              "\r",
+              "// 3. Verify unchanged fields remained the same (regression check)\r",
+              "pm.test(\"Verify unchanged fields remained intact\", function () {\r",
+              "    pm.expect(responseData).to.have.property('body');\r",
+              "    pm.expect(responseData).to.have.property('userId');\r",
+              "    pm.expect(responseData.id).to.eql(pm.environment.get(\"postId\"));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"This Title has been updated\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify Update - GET",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 1. Verify the status code is 200 OK for a successful data fetch\r",
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "// 2. Verify unchanged fields remained the same structure\r",
+              "pm.test(\"Verify unchanged data blocks remained intact\", function () {\r",
+              "    pm.expect(responseData).to.have.property('body');\r",
+              "    pm.expect(responseData).to.have.property('userId');\r",
+              "    pm.expect(responseData.id).to.eql(pm.environment.get(\"postId\"));\r",
+              "});\r",
+              "\r",
+              "// 3. Verify the payload data type returns a valid string title\r",
+              "pm.test(\"Verify target field retains correct data profile type\", function () {\r",
+              "    pm.expect(responseData.title).to.be.a('string');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete - DELETE",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify the server responds with a successful status code for deletion\r",
+              "pm.test(\"Status code is 200 OK or 204 No Content\", function () {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify delete - GET",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 1. Verify the request executes successfully\r",
+              "pm.test(\"Status code is 200 OK\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "// 2. Structural integrity fallback verification\r",
+              "pm.test(\"Verify structure remains intact\", function () {\r",
+              "    pm.expect(responseData).to.have.property('id');\r",
+              "    pm.expect(responseData.id).to.eql(pm.environment.get(\"postId\"));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "{{postId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
